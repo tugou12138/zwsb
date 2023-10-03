@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+    <title>重复图像结果</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .image-group {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-group h3 {
+            text-align: center;
+        }
+
+        .image-group img {
+            display: block;
+            margin: 0 10px;
+            max-width: 400px;
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>重复图像列表：</h1>
+    {% for i in range(0, duplicate_images|length, 2) %}
+    <div class="image-group">
+        <h3>第 {{ (i//2) + 1 }} 组</h3>
+        <img src="{{ duplicate_images[i] }}" alt="重复图像">
+        <img src="{{ duplicate_images[i + 1] }}" alt="重复图像">
+    </div>
+    {% endfor %}
+</body>
+</html>
